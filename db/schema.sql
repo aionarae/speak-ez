@@ -1,0 +1,7 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS speak_ez_db;
+
+-- CREATE DATABASE
+CREATE DATABASE speak_ez_db;
+
+\c speak_ez_db;
