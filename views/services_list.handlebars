@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Services</h1>
+    <div class="columns is-multiline">
+      {{#each services}}
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <p class="title">{{this.name}}</p>
+              <p class="subtitle">{{this.description}}</p>
+              <form action="/schedule" method="POST">
+                <input type="hidden" name="service" value="{{this.name}}">
+                <div class="field">
+                  <label class="label">Select Time</label>
+                  <div class="control">
+                    <input class="input" type="datetime-local" name="time" required>
+                  </div>
+                </div>
+                <button class="button is-link" type="submit">Schedule</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
