@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .list {
+            width: 45%;
+            max-height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .list h2 {
+            margin-top: 0;
+        }
+        .list-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <div class="container">
+        <div class="list" id="user-list">
+            <h2>Users</h2>
+            {{#each users}}
+                <div class="list-item">
+                    <p>Name: {{this.name}}</p>
+                    <p>Email: {{this.email}}</p>
+                </div>
+            {{/each}}
+        </div>
+        <div class="list" id="services-list">
+            <h2>Upcoming Services</h2>
+            {{#each services}}
+                <div class="list-item">
+                    <p>Service: {{this.service}}</p>
+                    <p>Date: {{this.date}}</p>
+                    <p>Time: {{this.time}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchUsers();
+            fetchServices();
+        });
+
+        function fetchUsers() {
+            fetch('/api/users')
+                .then(response => response.json())
+                .then(data => {
+                    const userList = document.getElementById('user-list');
+                    userList.innerHTML = `<h2>Users</h2>${data.users.map(user => `
+                        <div class="list-item">
+                            <p>Name: ${user.name}</p>
+                            <p>Email: ${user.email}</p>
+                        </div>`).join('')}`;
+                });
+        }
+
+        function fetchServices() {
+            fetch('/api/services')
+                .then(response => response.json())
+                .then(data => {
+                    const servicesList = document.getElementById('services-list');
+                    servicesList.innerHTML = `<h2>Upcoming Services</h2>${data.services.map(service => `
+                        <div class="list-item">
+                            <p>Service: ${service.service}</p>
+                            <p>Date: ${service.date}</p>
+                            <p>Time: ${service.time}</p>
+                        </div>`).join('')}`;
+                });
+        }
+    </script>
+</body>
+</html>
