@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Men's haircut",
+    "description": "Men's haircut with a professional barber.",
+    "price": 50,
+    "duration": 30,
+    "date": "2021-06-01",
+    "time": "10:00",
+    "status": "pending",
+    "user_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Women's haircut",
+    "description": "Women's haircut with a professional hairdresser.",
+    "price": 70,
+    "duration": 60,
+    "date": "2021-06-01",
+    "time": "11:00",
+    "status": "done",
+    "user_id": 2
+  },
+  {
+    "id": 3,
+    "name": "Conference room",
+    "description": "Conference room for a meeting.",
+    "price": 100,
+    "duration": 120,
+    "date": "2021-06-01",
+    "time": "12:00",
+    "status": "accepted",
+    "user_id": 3
+  }
+]

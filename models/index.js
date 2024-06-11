@@ -1,6 +1,6 @@
-const Role = require("./Role");
-const Service = require("./Service");
-const User = require("./User");
+const Role = require("./role");
+const Service = require("./service");
+const User = require("./user");
 
 // Role belongs to User
 Role.belongsTo(User, {
