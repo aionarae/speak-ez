@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "first_name": "Liam",
+    "last_name": "Neeson",
+    "email": "liam.neeson@email.com",
+    "username": "liam.neeson",
+    "password": "password"
+  },
+  {
+    "id": 2,
+    "first_name": "Tom",
+    "last_name": "Hanks",
+    "email": "tom.hanks@email.com",
+    "username": "tom.hanks",
+    "password": "password" 
+  },
+  {
+    "id": 3,
+    "first_name": "Meryl",
+    "last_name": "Streep",
+    "email": "meryl.streep@email.com",
+    "username": "meryl.streep",
+    "password": "password"
+  }
+]
