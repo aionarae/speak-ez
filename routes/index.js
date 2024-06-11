@@ -4,7 +4,7 @@ const path = require('path');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
-require('dotenv').config();  // Load environment variables from .env file
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -56,4 +56,3 @@ db.sequelize.sync().then(() => {
     console.log(`Server running at http://localhost:${port}/`);
   });
 });
-
