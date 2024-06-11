@@ -35,6 +35,10 @@ Service.init(
       type: DataTypes.TIME,
       allowNull: true,
     },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
