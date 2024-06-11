@@ -1,25 +1,40 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Role, Service } = require('../models');
 
 const userData = require('./userData.json');
-const projectData = require('./projectData.json');
+const roleData = require('./roleData.json');
+const serviceData = require('./serviceData.json');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  try {
+    await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+    let users = await User.bulkCreate(userData, {
+      individualHooks: true,
+      returning: true
     });
-  }
 
-  process.exit(0);
+    console.log(users)
+
+    for (const service of serviceData) {
+      await Service.create({
+        ...service,
+        user_id: users[Math.floor(Math.random() * users.length)].id,
+      });
+    }
+    
+    for (const role of roleData) {
+      await Role.create({
+        ...role,
+        user_id: users[Math.floor(Math.random() * users.length)].id,
+      });
+    }
+
+    process.exit(0);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 };
 
 seedDatabase();

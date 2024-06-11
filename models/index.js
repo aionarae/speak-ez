@@ -4,7 +4,7 @@ const User = require("./user");
 
 // Role belongs to User
 Role.belongsTo(User, {
-  foreignKey: "role_id",
+  foreignKey: "user_id",
 });
 
 // User has many Roles 
@@ -14,7 +14,7 @@ User.hasMany(Role, {
 
 // Service belongs Users
 Service.belongsTo(User, {
-  foreignKey: "service_id",
+  foreignKey: "user_id",
 });
 
 // // User has many Services
