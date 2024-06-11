@@ -14,7 +14,7 @@ Role.init (
     role_name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    }
   },
   {
     sequelize,

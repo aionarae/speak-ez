@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Men's haircut",
     "description": "Men's haircut with a professional barber.",
     "price": 50,
@@ -11,7 +10,6 @@
     "user_id": 1
   },
   {
-    "id": 2,
     "name": "Women's haircut",
     "description": "Women's haircut with a professional hairdresser.",
     "price": 70,
@@ -22,7 +20,6 @@
     "user_id": 2
   },
   {
-    "id": 3,
     "name": "Conference room",
     "description": "Conference room for a meeting.",
     "price": 100,
