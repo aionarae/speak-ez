@@ -14,8 +14,6 @@ const seedDatabase = async () => {
       returning: true
     });
 
-    console.log(users)
-
     for (const service of serviceData) {
       await Service.create({
         ...service,
