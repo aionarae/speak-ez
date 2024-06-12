@@ -1,4 +1,4 @@
-#homepage {
+#homepage, #login-page, #new-account-page, #services-page, #user-services-page, #admin-page {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -9,7 +9,7 @@
     color: #e0e0e0;
 }
 
-#homepage .container {
+#homepage .container, #login-page .container, #new-account-page .container, #services-page .container, #user-services-page .container, #admin-page .container {
     max-width: 960px;
     width: 100%;
     padding: 2rem;
@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-#homepage .title {
+#homepage .title, #login-page .title, #new-account-page .title, #services-page .title, #user-services-page .title, #admin-page .title {
     font-size: 4rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -29,7 +29,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-#homepage .subtitle {
+#homepage .subtitle, #services-page .subtitle {
     font-size: 1.8rem;
     margin-bottom: 2rem;
     color: #b0b0b0;
@@ -39,7 +39,7 @@
     margin-top: 2rem;
 }
 
-#homepage .button {
+#homepage .button, #login-page .button, #new-account-page .button, #services-page .button, #user-services-page .button, #admin-page .button {
     padding: 1.2rem 2.5rem;
     font-size: 1.4rem;
     border-radius: 50px;
@@ -50,12 +50,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-#homepage .button.is-link {
+#homepage .button.is-link, #login-page .button.is-link, #new-account-page .button.is-link, #services-page .button.is-link, #user-services-page .button.is-link, #admin-page .button.is-link {
     background-color: #5050c0;
     color: #fff;
 }
 
-#homepage .button.is-link:hover {
+#homepage .button.is-link:hover, #login-page .button.is-link:hover, #new-account-page .button.is-link:hover, #services-page .button.is-link:hover, #user-services-page .button.is-link:hover, #admin-page .button.is-link:hover {
     background-color: #3a3a90;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.7);
@@ -127,20 +127,21 @@
 }
 
 @media screen and (max-width: 768px) {
-    #homepage .container {
+    #homepage .container, #login-page .container, #new-account-page .container, #services-page .container, #user-services-page .container, #admin-page .container {
         padding: 1.5rem;
     }
 
-    #homepage .title {
+    #homepage .title, #login-page .title, #new-account-page .title, #services-page .title, #user-services-page .title, #admin-page .title {
         font-size: 3rem;
     }
 
-    #homepage .subtitle {
+    #homepage .subtitle, #services-page .subtitle {
         font-size: 1.5rem;
     }
 
-    #homepage .button {
+    #homepage .button, #login-page .button, #new-account-page .button, #services-page .button, #user-services-page .button, #admin-page .button {
         padding: 1rem 2rem;
         font-size: 1.2rem;
     }
 }
+

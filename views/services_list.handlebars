@@ -1,27 +1,45 @@
-<section class="section">
-  <div class="container">
-    <h1 class="title">Services</h1>
-    <div class="columns is-multiline">
-      {{#each services}}
-        <div class="column is-one-third-desktop is-half-tablet">
-          <div class="card is-rounded">
-            <div class="card-content">
-              <p class="title">{{this.name}}</p>
-              <p class="subtitle">{{this.description}}</p>
-              <form action="/schedule" method="POST">
-                <input type="hidden" name="service" value="{{this.name}}">
-                <div class="field">
-                  <label class="label">Select Time</label>
-                  <div class="control">
-                    <input class="input" type="datetime-local" name="time" required>
-                  </div>
-                </div>
-                <button class="button is-primary is-fullwidth" type="submit">Schedule</button>
-              </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="section" id="services-page">
+        <div class="container">
+            <h1 class="title">Services</h1>
+            <div class="columns is-multiline">
+                {{#each services}}
+                    <div class="column is-one-third-desktop is-half-tablet">
+                        <div class="card is-rounded">
+                            <div class="card-content">
+                                <p class="title">{{this.name}}</p>
+                                <p class="subtitle">{{this.description}}</p>
+                                <form action="/schedule" method="POST">
+                                    <input type="hidden" name="service" value="{{this.name}}">
+                                    <div class="field">
+                                        <label class="label">Select Time</label>
+                                        <div class="control">
+                                            <input class="input" type="datetime-local" name="time" required>
+                                        </div>
+                                    </div>
+                                    <button class="button is-link is-fullwidth" type="submit">Schedule</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
-          </div>
         </div>
-      {{/each}}
-    </div>
-  </div>
-</section>
+        <div class="hero-background">
+            <div class="circle large"></div>
+            <div class="circle medium"></div>
+            <div class="circle small"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
