@@ -4,36 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THis is the homapage yay!</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <title>This is the homepage yay!</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <!-- Keep custom styles if needed -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Template!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+  <section class="section">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <span role="img" aria-label="money">💸</span> Template!
+          </a>
+        </div>
+
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <!-- Conditionally render login or logout links -->
+            {{#if logged_in}}
+            <a class="navbar-item" href="/profile">Profile</a>
+            <div class="navbar-item">
+              <button class="button is-light" id="logout">Logout</button>
+            </div>
+            {{else}}
+            <a class="navbar-item" href="/login">Login</a>
+            {{/if}}
+          </div>
+        </div>
       </nav>
-    </header>
-    <main class="container container-fluid mt-5">
+
       <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+      <div class="content mt-5">
+        {{{ body }}}
+      </div>
+    </div>
+  </section>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}

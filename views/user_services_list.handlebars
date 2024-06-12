@@ -1,12 +1,24 @@
 <section class="section">
   <div class="container">
-    <h1 class="title">Upcoming Services</h1>
+    <h1 class="title has-text-centered">Upcoming Services</h1>
     <div class="box">
-      <ul>
-        {{#each services}}
-          <li>{{this.date}}: {{this.service}}</li>
-        {{/each}}
-      </ul>
+      <div class="content">
+        <ul>
+          {{#each services}}
+            <li class="mb-2">
+              <article class="media">
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>{{this.date}}</strong> <small>{{this.service}}</small>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
