@@ -1,42 +1,60 @@
-<section class="hero is-primary is-fullheight">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">VIP Members Login</h1>
-      <div class="box">
-        <form action="/login" method="POST">
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control has-icons-left">
-              <input class="input" type="text" name="username" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Members Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="hero is-fullheight" id="login-page">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">VIP Members Login</h1>
+                <div class="box">
+                    <form action="/login" method="POST">
+                        <div class="field">
+                            <label class="label">Username</label>
+                            <div class="control has-icons-left">
+                                <input class="input" type="text" name="username" placeholder="Enter your username" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left">
+                                <input class="input" type="password" name="password" placeholder="Enter your password" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="rememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-link is-fullwidth" type="submit">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control has-icons-left">
-              <input class="input" type="password" name="password" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <label class="checkbox">
-                <input type="checkbox">
-                Remember me
-              </label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <button class="button is-link is-fullwidth" type="submit">Login</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
+        <div class="hero-background">
+            <div class="circle large"></div>
+            <div class="circle medium"></div>
+            <div class="circle small"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
