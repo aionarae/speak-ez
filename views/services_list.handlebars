@@ -3,8 +3,8 @@
     <h1 class="title">Services</h1>
     <div class="columns is-multiline">
       {{#each services}}
-        <div class="column is-one-third">
-          <div class="card">
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="card is-rounded">
             <div class="card-content">
               <p class="title">{{this.name}}</p>
               <p class="subtitle">{{this.description}}</p>
@@ -16,7 +16,7 @@
                     <input class="input" type="datetime-local" name="time" required>
                   </div>
                 </div>
-                <button class="button is-link" type="submit">Schedule</button>
+                <button class="button is-primary is-fullwidth" type="submit">Schedule</button>
               </form>
             </div>
           </div>
