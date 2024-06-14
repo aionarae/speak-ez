@@ -6,3 +6,5 @@ const serviceRoutes = require('./serviceRoutes');
 router.use('/users', userRoutes);
 router.use('/roles', roleRoutes);
 router.use('/services', serviceRoutes);
+
+module.exports = router;
