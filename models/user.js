@@ -6,9 +6,21 @@ class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
+
+  static associate(models) {
+    // Define the association with the Service model
+    User.hasMany(models.Service, {
+      foreignKey: 'user_id',
+    });
+
+    // Define the association with the Role model
+    User.hasMany(models.Role, {
+      foreignKey: 'user_id',
+    });
+  }
 }
 
-User.init( 
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -51,7 +63,6 @@ User.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
-  
   }
 );
 
