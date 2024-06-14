@@ -16,6 +16,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/new_account', async (req, res) => {
+  try {
+    // Add any logic you need here
+    res.render('new_account');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', async (req, res) => {
   try {
     // If user is logged in, rediret to 
