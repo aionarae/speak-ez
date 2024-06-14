@@ -1,7 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const  sequelize  = require('../config/connection');
 
-class Service extends Model {}
+class Service extends Model {  
+  
+  static associate(models) {
+  Service.belongsTo(models.User, {
+    foreignKey: 'user_id',
+  });
+}
+}
 
 Service.init(
   {

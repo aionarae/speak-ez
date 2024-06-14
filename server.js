@@ -49,7 +49,12 @@ app.use('/services', serviceRoutes);
 app.use(routes);
 
 // Import models
-const { Service, User } = require('./models');
+const { Service, User, Role } = require('./models');
+
+// Call the associate method on each model to set up associations
+User.associate({ Service, Role });
+Service.associate({ User });
+Role.associate({ User });
 
 // Sync the models with the database
 sequelize.sync({ force: false })
