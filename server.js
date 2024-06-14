@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Import the service routes
-const serviceRoutes = require('./routes/serviceRoutes');
+const serviceRoutes = require('./controllers/api/serviceRoutes');
 
 // Mount the service routes
 app.use('/services', serviceRoutes);
