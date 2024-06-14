@@ -40,8 +40,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Import the service routes
+const serviceRoutes = require('./routes/serviceRoutes');
+
+// Mount the service routes
+app.use('/services', serviceRoutes);
+
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+// Import models
+const { Service, User } = require('./models');
+
+// Sync the models with the database
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('Database synced successfully!');
+    // Start the server after successful sync
+    app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+  })
+  .catch((err) => console.error('Error syncing database:', err));
