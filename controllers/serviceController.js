@@ -1,9 +1,17 @@
 // controllers/serviceController.js
-const { Service } = require('../models/service');
+const { Service, User } = require('../models');
+
+console.log('Service model:', Service);
 
 // Enhanced createService with better error logging and input validation placeholder
 exports.createService = async (req, res) => {
   try {
+    // Check if the user exists
+    const user = await User.findByPk(req.body.user_id);
+    if (!user) {
+      return res.status(400).json({ error: 'Invalid user_id' });
+    }
+
     // Placeholder for input validation and sanitization
     // validateServiceInput(req.body);
 
