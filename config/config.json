@@ -1,20 +1,20 @@
 {
     "development": {
-      "username": "postgres",
-      "password": "bentlee",
+      "username": "speak_ez_db_user",
+      "password": "BjaulXspqJrgJwpBgtgG9gJjGgzuPkY8",
       "database": "speak_ez_db",
-      "host": "127.0.0.1",
+      "host": "dpg-cplqdl2ju9rs738f8oi0-a",
       "dialect": "postgres"
     },
     "test": {
-      "username": "postgres",
-      "password": "bentlee",
+      "username": "speak_ez_db_user",
+      "password": "BjaulXspqJrgJwpBgtgG9gJjGgzuPkY8",
       "database": "speak_ez_db",
-      "host": "127.0.0.1",
+      "host": "dpg-cplqdl2ju9rs738f8oi0-a",
       "dialect": "postgres"
     },
     "production": {
-      "use_env_variable": "DATABASE_URL"
+      "use_env_variable": "postgres://speak_ez_db_user:BjaulXspqJrgJwpBgtgG9gJjGgzuPkY8@dpg-cplqdl2ju9rs738f8oi0-a/speak_ez_dbL"
     }
   }
   
