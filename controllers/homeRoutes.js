@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Role, Service } = require('../models');
 const withAuth = require('../utils/auth');
 const serviceData = require('../seeds/serviceData.json');
+const adminAuth = require('../utils/adminAuth');
 
 router.get('/', async (req, res) => {
   try {
@@ -10,6 +11,14 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.get('/admin', adminAuth, async (req, res) => {
+  try {
+    res.render('admin_page');
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 
