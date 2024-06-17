@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Role, Service } = require('../models');
 const withAuth = require('../utils/auth');
-const adminAuth = require('../utils/adminAuth');
 const serviceData = require('../seeds/serviceData.json');
 
 // Render the homepage
