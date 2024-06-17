@@ -1,52 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create an Account</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <section class="hero is-fullheight" id="new-account-page">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Create an Account</h1>
-                <div class="box">
-                    <form id="registerForm" action="/signup" method="POST">
-                        <div class="field">
-                            <label class="label">Username</label>
-                            <div class="control has-icons-left">
-                                <input class="input" type="text" name="username" required>
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                            </div>
+<section class="hero is-fullheight" id="new-account-page">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Create an Account</h1>
+            <div class="box">
+                <form id="registerForm" action="/api/users/signup" method="POST">
+                    <div class="field">
+                        <label class="label">First Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="first_name" required>
                         </div>
-                        <div class="field">
-                            <label class="label">Password</label>
-                            <div class="control has-icons-left">
-                                <input class="input" type="password" name="password" required>
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="last_name" required>
                         </div>
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-link is-fullwidth" type="submit">Register</button>
-                            </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" name="email" required>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" name="username" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="password" name="password" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-link is-fullwidth" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="hero-background">
-            <div class="circle large"></div>
-            <div class="circle medium"></div>
-            <div class="circle small"></div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    </div>
+    <div class="hero-background">
+        <div class="circle large"></div>
+        <div class="circle medium"></div>
+        <div class="circle small"></div>
+    </div>
+</section>

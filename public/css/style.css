@@ -126,6 +126,45 @@
     }
 }
 
+.navbar {
+    background-color: rgba(40, 40, 40, 0.9);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand .navbar-item {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-menu .navbar-item {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu .navbar-item:hover {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.navbar-menu .button.is-light {
+    background-color: #5050c0;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu .button.is-light:hover {
+    background-color: #3a3a90;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
 @media screen and (max-width: 768px) {
     #homepage .container, #login-page .container, #new-account-page .container, #services-page .container, #user-services-page .container, #admin-page .container {
         padding: 1.5rem;
@@ -144,4 +183,3 @@
         font-size: 1.2rem;
     }
 }
-

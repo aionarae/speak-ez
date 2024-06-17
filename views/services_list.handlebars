@@ -9,6 +9,11 @@
 <body>
     <section class="section" id="services-page">
         <div class="container">
+            <div class="level">
+                <div class="level-left">
+                    <a href="/user-services" class="button is-link">My Scheduled Services</a>
+                </div>
+            </div>
             <h1 class="title">Services</h1>
             <div class="columns is-multiline">
                 {{#each services}}
@@ -17,6 +22,8 @@
                             <div class="card-content">
                                 <p class="title">{{this.name}}</p>
                                 <p class="subtitle">{{this.description}}</p>
+                                <p>Price: ${{this.price}}</p>
+                                <p>Duration: {{this.duration}} minutes</p>
                                 <form action="/schedule" method="POST">
                                     <input type="hidden" name="service" value="{{this.name}}">
                                     <div class="field">
