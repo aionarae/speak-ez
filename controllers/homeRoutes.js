@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const { User, Role, Service } = require('../models');
 const withAuth = require('../utils/auth');
-const serviceData = require('../seeds/serviceData.json');
 const adminAuth = require('../utils/adminAuth');
+const serviceData = require('../seeds/serviceData.json');
 
+// Render the homepage
 router.get('/', async (req, res) => {
   try {
     res.render('homepage', {
@@ -15,6 +16,8 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/admin', withAuth, async (req, res) => {
+=======
+// Render the admin page
   try {
     if (req.session.logged_in) {
       const user = await User.findAll({
@@ -44,6 +47,7 @@ router.get('/admin', withAuth, async (req, res) => {
   }
 });
 
+// Render the signup page
 router.get('/signup', async (req, res) => {
   try {
     res.render('signup');
@@ -52,6 +56,7 @@ router.get('/signup', async (req, res) => {
   }
 });
 
+// Render the login page or redirect if already logged in
 router.get('/login', async (req, res) => {
   try {
     if (req.session.loggedIn) {
@@ -64,6 +69,7 @@ router.get('/login', async (req, res) => {
   }
 });
 
+// Display all services
 router.get('/services', withAuth, async (req, res) => {
   try {
     res.render('services_list', {
@@ -75,12 +81,11 @@ router.get('/services', withAuth, async (req, res) => {
   }
 });
 
-
-
+// Schedule a service
 router.post('/schedule', withAuth, async (req, res) => {
   try {
     const { service, time } = req.body;
-    
+
     // Parse the selected time
     const selectedTime = new Date(time);
 
@@ -110,6 +115,7 @@ router.post('/schedule', withAuth, async (req, res) => {
   }
 });
 
+// Fetch and display all services scheduled by the user
 router.get('/user-services', withAuth, async (req, res) => {
   try {
     const userServices = await Service.findAll({
