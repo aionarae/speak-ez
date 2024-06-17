@@ -15,12 +15,15 @@
                         <h1 class="title">Speak-EZ</h1>
                         <p class="subtitle">Your local luxury dealer</p>
                         <div class="buttons is-centered">
-                            {{#unless logged_in}}
+                            {{#if logged_in}}
+                            <!-- Logout Button for logged in users -->
+                            <button class="button is-danger" onclick="logoutUser()">Logout</button>
+                            {{else}}
                             <a href="/login" class="button is-link">Member Login</a>
                             <a href="/signup" class="button is-info">New User</a>
-                            <!-- Add the Admin Login button here -->
+                            <!-- Admin Login button for non-logged-in users -->
                             <a href="/admin" class="button is-warning">Admin Login</a>
-                            {{/unless}}
+                            {{/if}}
                         </div>
                     </div>
                 </div>
@@ -34,6 +37,17 @@
     </section>
 
     <script src="../js/login.js"></script>
+    <script>
+    function logoutUser() {
+        fetch('/logout', {
+            method: 'POST'
+        }).then(() => {
+            window.location.href = '/';
+        }).catch((error) => {
+            console.error('Logout failed:', error);
+        });
+    }
+    </script>
     
 </body>
 </html>

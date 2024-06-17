@@ -21,10 +21,10 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
+        <!-- Conditional rendering based on login status -->
         {{#if logged_in}}
-        <a class="navbar-item" href="/profile">Profile</a>
         <div class="navbar-item">
-          <button class="button is-light" id="logout">Logout</button>
+          <button class="button is-light" id="logout" onclick="logoutUser()">Logout</button>
         </div>
         {{else}}
         <a class="navbar-item" href="/login">Login</a>
@@ -36,9 +36,20 @@
   <!-- Render the sub layout -->
   {{{ body }}}
 
-  <!-- Render script for logged in users only -->
+  <!-- Logout script for logged in users -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  <script>
+    function logoutUser() {
+      fetch('/logout', {
+        method: 'POST'
+      }).then(() => {
+        window.location = '/login';
+      }).catch((error) => {
+        console.error('Logout failed:', error);
+      });
+    }
+  </script>
   {{/if}}
 </body>
 
