@@ -5,7 +5,8 @@ const { Role } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         const newRole = await Role.create(req.body);
-        res.status(201).json(newRole);
+        const sanitizedRole = req._.pick(newRole.toJSON(), ['id', 'role_name']);
+        res.status(201).json(sanitizedRole);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -15,7 +16,10 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const roles = await Role.findAll();
-        res.json(roles);
+        const sanitizedRoles = req._.map(roles, (role) =>
+            req._.pick(role.toJSON(), ['id', 'role_name'])
+        );
+        res.json(sanitizedRoles);
     } catch (error) {
         res.status(500).json(error);
     }
@@ -29,7 +33,8 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No role found with this id!' });
             return;
         }
-        res.json(role);
+        const sanitizedRole = req._.pick(role.toJSON(), ['id', 'role_name']);
+        res.json(sanitizedRole);
     } catch (error) {
         res.status(500).json(error);
     }

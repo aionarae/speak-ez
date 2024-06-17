@@ -7,7 +7,10 @@ router.get('/', async (req, res) => {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },
         });
-        res.status(200).json(userData);
+        const sanitizedUserData = req._.map(userData, (user) =>
+            req._.pick(user.toJSON(), ['first_name', 'last_name', 'email'])
+        );
+        res.status(200).json(sanitizedUserData);
     } catch (error) {
         res.status(500).json(error);
     }
