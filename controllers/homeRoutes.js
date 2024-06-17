@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/admin', withAuth, async (req, res) => {
-=======
+
 // Render the admin page
   try {
     if (req.session.logged_in) {
