@@ -14,9 +14,31 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/admin', adminAuth, async (req, res) => {
+router.get('/admin', withAuth, async (req, res) => {
   try {
-    res.render('admin_page');
+    if (req.session.logged_in) {
+      const user = await User.findAll({
+        where: {
+          id: req.session.user_id,
+        },
+      
+      });
+
+      const role = await Role.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+      });
+      
+
+      if (role.user_id === user.id && role[0].role_name == 'admin') {
+        res.render('admin_page'); 
+      } else {
+        res.redirect('/login');
+      }
+    }
+    
+
   } catch (error) {
     res.status(500).json(error);
   }
