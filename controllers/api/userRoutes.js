@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.redirect('/services'); // Redirect to the services list page
+            res.redirect('/dashboard'); // Redirect to the services list page
         });
     } catch (error) {
         res.status(500).json(error);

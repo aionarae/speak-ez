@@ -14,6 +14,31 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+  // Assuming the user's ID is stored in the session
+  const userRoles = await Role.findAll({
+      where: {
+      user_id: req.session.user_id,
+      },
+  });
+
+  // Assuming there's only one role per user for simplicity
+  const userRole = userRoles.length > 0 ? userRoles[0].role_name : null;
+
+  if (userRole === 'admin') {
+      // Redirect admin users to the admin dashboard
+      res.redirect('/admin');
+  } else {
+      // Redirect other users to a general dashboard
+      res.redirect('/services');
+  }
+  } catch (error) {
+  res.status(500).json(error);
+  }
+});
+
+// Render the admin page
 router.get('/admin', withAuth, async (req, res) => {
 
 // Render the admin page
