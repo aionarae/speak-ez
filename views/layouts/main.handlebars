@@ -4,44 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>This is the homepage yay!</title>
+  <title>Speak EZ</title>
   <!-- Bulma CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <!-- Keep custom styles if needed -->
+  <!-- Custom styles -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <section class="section">
-    <div class="container">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <span role="img" aria-label="money">💸</span> Template!
-          </a>
-        </div>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <span role="img" aria-label="speech bubble">💬</span> Speak EZ
+      </a>
+    </div>
 
-        <div class="navbar-menu">
-          <div class="navbar-end">
-            <!-- Conditionally render login or logout links -->
-            {{#if logged_in}}
-            <a class="navbar-item" href="/profile">Profile</a>
-            <div class="navbar-item">
-              <button class="button is-light" id="logout">Logout</button>
-            </div>
-            {{else}}
-            <a class="navbar-item" href="/login">Login</a>
-            {{/if}}
-          </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        {{#if logged_in}}
+        <a class="navbar-item" href="/profile">Profile</a>
+        <div class="navbar-item">
+          <button class="button is-light" id="logout">Logout</button>
         </div>
-      </nav>
-
-      <!-- Render the sub layout -->
-      <div class="content mt-5">
-        {{{ body }}}
+        {{else}}
+        <a class="navbar-item" href="/login">Login</a>
+        {{/if}}
       </div>
     </div>
-  </section>
+  </nav>
+
+  <!-- Render the sub layout -->
+  {{{ body }}}
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}

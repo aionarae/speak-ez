@@ -11,32 +11,30 @@ router.get('/', async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-}
-);
+});
 
-// POST /api/users - Register a new user
-router.post('/users', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
-        const newUser = await User.create(req.body);
+        const { first_name, last_name, email, username, password } = req.body;
+        const newUser = await User.create({
+            first_name,
+            last_name,
+            email,
+            username,
+            password: await bcrypt.hash(password, 10),
+        });
 
         req.session.save(() => {
             req.session.user_id = newUser.id;
             req.session.logged_in = true;
-            res.status(200).json(newUser);
-            
+            res.redirect('/services');
         });
-        // Set up session variables here if needed
     } catch (error) {
         res.status(400).json(error);
     }
 });
 
-// POST users/login - Login a user
 router.post('/login', async (req, res) => {
-
-    console.log("this is the req.body")
-    console.log(req.body)
-
     const { username, password } = req.body;
 
     try {
@@ -46,43 +44,36 @@ router.post('/login', async (req, res) => {
             },
         });
 
-        console.log("this is the userData")
-        console.log(userData)
-
         if (!userData) {
-            res.status(400).json({ message: 'Login failed! Incorrect username or passwword!'});
+            res.status(400).json({ message: 'Login failed! Incorrect username or password!' });
             return;
         }
-        // Add password check logic here
-        const validPassword = password === userData.password;
-        //const validPassword = userData.checkPassword(password);
 
-        console.log("this is the validPassword")
-        console.log(validPassword)
+        const validPassword = await bcrypt.compare(password, userData.password);
 
         if (!validPassword) {
             res.status(400).json({ message: 'Login failed! Incorrect password!' });
-            return
+            return;
         }
 
-        // Set up session variables here
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-        res.json({ user: userData, message: 'You are now logged in!' });
-
-        }
-        );
+            res.redirect('/services'); // Redirect to the services list page
+        });
     } catch (error) {
         res.status(500).json(error);
-        console.log(error)
     }
 });
 
-// POST or GET /api/users/logout - Logout a user
 router.post('/logout', (req, res) => {
-    // Destroy the session here
-    res.json({ message: 'You have been logged out!' });
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;
