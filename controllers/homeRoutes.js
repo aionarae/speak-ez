@@ -8,7 +8,7 @@ const serviceData = require('../seeds/serviceData.json');
 router.get('/', async (req, res) => {
   try {
     res.render('homepage', {
-      loggedIn: req.session.loggedIn
+      logged_in: req.session.logged_in  // Corrected to use 'logged_in'
     });
   } catch (err) {
     res.status(500).json(err);
@@ -18,7 +18,9 @@ router.get('/', async (req, res) => {
 // Render the admin page
 router.get('/admin', adminAuth, async (req, res) => {
   try {
-    res.render('admin_page');
+    res.render('admin_page', {
+      logged_in: req.session.logged_in  // Added for consistency
+    });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -27,7 +29,9 @@ router.get('/admin', adminAuth, async (req, res) => {
 // Render the signup page
 router.get('/signup', async (req, res) => {
   try {
-    res.render('signup');
+    res.render('signup', {
+      logged_in: req.session.logged_in  // Added for consistency
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -36,11 +40,13 @@ router.get('/signup', async (req, res) => {
 // Render the login page or redirect if already logged in
 router.get('/login', async (req, res) => {
   try {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/services');
       return;
     }
-    res.render('login');
+    res.render('login', {
+      logged_in: req.session.logged_in  // Added for consistency
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -51,7 +57,7 @@ router.get('/services', withAuth, async (req, res) => {
   try {
     res.render('services_list', {
       services: serviceData,
-      loggedIn: req.session.logged_in
+      logged_in: req.session.logged_in  // Corrected to logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -103,7 +109,7 @@ router.get('/user-services', withAuth, async (req, res) => {
 
     res.render('user_services_list', {
       userServices: userServices.map((service) => service.get({ plain: true })),
-      loggedIn: req.session.logged_in,
+      logged_in: req.session.logged_in,  // Corrected to logged_in
     });
   } catch (err) {
     res.status(500).json(err);
