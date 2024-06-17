@@ -13,13 +13,15 @@
             <div class="box">
                 <div class="content">
                     <ul>
-                        {{#each services}}
+                        {{#each userServices}}
                             <li class="mb-2">
                                 <article class="media">
                                     <div class="media-content">
                                         <div class="content">
                                             <p>
-                                                <strong>{{this.date}}</strong> <small>{{this.service}}</small>
+                                                <strong>{{this.date}} - {{this.time}}</strong> <small>{{this.name}}</small>
+                                                <br>
+                                                <em>{{this.description}}</em>
                                             </p>
                                         </div>
                                     </div>
@@ -32,7 +34,7 @@
         </div>
         <div class="hero-background">
             <div class="circle large"></div>
-            <div class="circle medium"></div>
+            <div the="circle medium"></div>
             <div class="circle small"></div>
         </div>
     </section>
