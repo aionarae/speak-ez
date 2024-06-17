@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP Members Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <section class="hero is-fullheight" id="login-page">
@@ -12,7 +12,7 @@
             <div class="container has-text-centered">
                 <h1 class="title">VIP Members Login</h1>
                 <div class="box">
-                    <form action="/login" method="POST">
+                    <form action="/api/users/login" method="POST">
                         <div class="field">
                             <label class="label">Username</label>
                             <div class="control has-icons-left">
@@ -55,6 +55,6 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>

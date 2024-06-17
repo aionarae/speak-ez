@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speak-EZ</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <section class="hero is-fullheight" id="homepage">
@@ -15,8 +15,10 @@
                         <h1 class="title">Speak-EZ</h1>
                         <p class="subtitle">Your local luxury dealer</p>
                         <div class="buttons is-centered">
+                            {{#unless logged_in}}
                             <a href="/login" class="button is-link">Member Login</a>
-                            <a href="/new_account" class="button is-info">New User</a>
+                            <a href="/signup" class="button is-info">New User</a>
+                            {{/unless}}
                         </div>
                     </div>
                 </div>
@@ -29,6 +31,7 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="../js/login.js"></script>
+    
 </body>
 </html>

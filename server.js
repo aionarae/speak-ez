@@ -1,4 +1,3 @@
-require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -40,27 +39,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Import the service routes
-const serviceRoutes = require('./controllers/api/serviceRoutes');
-
-// Mount the service routes
-app.use('/services', serviceRoutes);
-
 app.use(routes);
 
-// Import models
-const { Service, User, Role } = require('./models');
-
-// Call the associate method on each model to set up associations
-User.associate({ Service, Role });
-Service.associate({ User });
-Role.associate({ User });
-
-// Sync the models with the database
-sequelize.sync({ force: false })
-  .then(() => {
-    console.log('Database synced successfully!');
-    // Start the server after successful sync
-    app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
-  })
-  .catch((err) => console.error('Error syncing database:', err));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});

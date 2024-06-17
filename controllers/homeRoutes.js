@@ -7,7 +7,6 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Add any logic you need here
-
     res.render('homepage', {
       loggedIn: req.session.loggedIn
     });
@@ -16,10 +15,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/new_account', async (req, res) => {
+router.get('/signup', async (req, res) => {
   try {
     // Add any logic you need here
-    res.render('new_account');
+    res.render('signup');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -27,12 +26,11 @@ router.get('/new_account', async (req, res) => {
 
 router.get('/login', async (req, res) => {
   try {
-    // If user is logged in, rediret to 
+    // If user is logged in, redirect to 
     if (req.session.loggedIn) {
       res.redirect('/services');
       return;
     }
-
     res.render('login');
   } catch (err) {
     res.status(500).json(err);
