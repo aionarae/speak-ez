@@ -2,7 +2,7 @@
   
 ## Screenshot:
 
-![Image alt text](https://github.com/aionarae/speak-ez/assets/images/project-screenshot.png)
+![Image alt text](https://raw.githubusercontent.com/aionarae/speak-ez/main/assets/images/project-screenshot.png)
 
 ## Link to deployed application:
 
